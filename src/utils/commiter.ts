@@ -1,8 +1,8 @@
 import * as p from '@clack/prompts'
-import { bgYellow, black } from 'kolorist'
+import { lightGreen } from 'kolorist'
 import dedent from 'dedent'
 
-import { CANCELED_OP_MSG } from './constants'
+import { CANCELED_OP_MSG, VERSION } from './constants'
 import { type, commit } from './prompts'
 import { handleCliError, CliError } from '../helpers/cli-errror'
 import { log } from '../helpers/log'
@@ -15,7 +15,7 @@ import {
 } from '../helpers/git'
 
 export const commiter = async () => {
-  p.intro(bgYellow(black('Cocli')))
+  p.intro(lightGreen(`Cocli - v${VERSION} 🌱🚀`))
 
   isGitRepository()
 
