@@ -9,7 +9,7 @@ jobs:
   create-pull-request:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: jascodes/pr-branch-action@1.0.3
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
