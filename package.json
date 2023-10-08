@@ -61,7 +61,7 @@
     "eslint": "^8.41.0",
     "eslint-plugin-unused-imports": "^2.0.0",
     "jiti": "^1.18.2",
-    "pkgroll": "^1.10.0",
+    "pkgroll": "^2.0.1",
     "prettier": "^2.8.8",
     "rimraf": "^5.0.1",
     "typescript": "^5.1.3"
