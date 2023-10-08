@@ -1,4 +1,10 @@
-# Cocli
+<p align="center">
+  <img 
+    src="cocli.png"
+    alt="Cocli"
+    style="width:100%;"
+  />
+</p>
 
 ![build](https://github.com/iamando/cocli/workflows/build/badge.svg)
 ![license](https://img.shields.io/github/license/iamando/cocli?color=success)
