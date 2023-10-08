@@ -26,7 +26,7 @@ cocli
 cocli update
 ```
 
-## Configuration
+## Commit Type
 
 List of type available:
 
