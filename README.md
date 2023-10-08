@@ -4,7 +4,7 @@
 ![license](https://img.shields.io/github/license/iamando/cocli?color=success)
 ![npm](https://img.shields.io/npm/v/cocli)
 
-A ligthweight git commit system to ensure readable and descriptive commit 🌱🚀.
+A ligthweight git commit prompt system to ensure readable and descriptive commit 🌱🚀.
 
 ## Installation
 
