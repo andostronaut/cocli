@@ -1,11 +1,14 @@
-import { promisify } from 'node:util'
-import { exec } from 'node:child_process'
-import { access } from 'node:fs'
-import path from 'path'
-import * as p from '@clack/prompts'
-import { lightGreen, lightYellow } from 'kolorist'
+import {
+  lightGreen,
+  lightYellow,
+  outro,
+  promisify,
+  exec,
+  access,
+  resolve,
+} from '../../deps.ts'
 
-import { CliError } from './cli-errror'
+import { CliError } from './cli-errror.ts'
 
 const execa = promisify(exec)
 
@@ -32,17 +35,17 @@ export const isTreeClean = async () => {
   const { stdoutStatus, stderrStatus } = await gitStatus()
   if (stderrStatus) throw new CliError(`An error occured: ${stderrStatus}`)
   if (stdoutStatus.includes('nothing to commit, working tree clean')) {
-    p.outro(lightGreen('Nothing to commit, working tree clean 🧹'))
-    process.exit(1)
+    outro(lightGreen('Nothing to commit, working tree clean 🧹'))
+    Deno.exit(1)
   }
 }
 
 export const isGitRepository = () => {
-  const dir = path.resolve('.git')
+  const dir = resolve('.git')
   access(dir, err => {
     if (err && err.code === 'ENOENT') {
-      p.outro(lightYellow('Not a git repository 😢'))
-      process.exit(1)
+      outro(lightYellow('Not a git repository 😢'))
+      Deno.exit(1)
     }
   })
 }

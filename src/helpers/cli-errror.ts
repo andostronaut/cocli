@@ -1,13 +1,11 @@
-import { dim } from 'kolorist'
-
-import { AUTHOR, PACKAGE_NAME, VERSION } from '../utils/constants'
-import { log } from './log'
+import { dim } from '../../deps.ts'
+import { log } from './log.ts'
 
 export class CliError extends Error {}
 
 const indent = ' '.repeat(4)
 
-export const handleCliError = (error: any) => {
+export function handleCliError(error: { message?: string; stack?: string }) {
   if (error instanceof Error && !(error instanceof CliError)) {
     if (error.stack) {
       log({
@@ -17,7 +15,7 @@ export const handleCliError = (error: any) => {
     }
     log({
       type: 'error',
-      msg: `\n${indent}${dim(`${PACKAGE_NAME} v${VERSION}`)}`,
+      msg: `\n${indent}${dim('Cocli - v0.1.0 🌱🚀')}`,
     })
     log({
       type: 'error',
@@ -25,7 +23,7 @@ export const handleCliError = (error: any) => {
     })
     log({
       type: 'error',
-      msg: `${indent}https://github.com/${AUTHOR.name}/${PACKAGE_NAME}/issues/new`,
+      msg: `${indent}https://github.com/iamando/cocli/issues/new`,
     })
   }
 }

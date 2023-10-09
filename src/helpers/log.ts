@@ -1,4 +1,4 @@
-import { blue, green, red, dim } from 'kolorist'
+import { blue, green, red, dim } from '../../deps.ts'
 
 type Type = 'info' | 'success' | 'error'
 

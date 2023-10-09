@@ -1,8 +1,7 @@
-import _ from 'lodash'
-import * as p from '@clack/prompts'
+import { Select, Input } from '../../deps.ts'
 
 export const type = () =>
-  p.select({
+  select({
     message: 'Choose commit type',
     initialValue: 'feat',
     options: [
@@ -65,9 +64,9 @@ export const type = () =>
   }) as Promise<string>
 
 export const commit = () =>
-  p.text({
+  text({
     message: 'Insert commit message',
-    validate: value => {
-      if (_.isEmpty(value)) return 'Commit message required'
+    validate: (value: string) => {
+      if (value === '') return 'Commit message required'
     },
   }) as Promise<string>
