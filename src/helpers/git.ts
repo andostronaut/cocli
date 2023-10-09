@@ -1,12 +1,4 @@
-import {
-  lightGreen,
-  lightYellow,
-  outro,
-  promisify,
-  exec,
-  access,
-  resolve,
-} from '../../deps.ts'
+import { green, yellow, promisify, exec, access, resolve } from '../../deps.ts'
 
 import { CliError } from './cli-errror.ts'
 
@@ -35,7 +27,7 @@ export const isTreeClean = async () => {
   const { stdoutStatus, stderrStatus } = await gitStatus()
   if (stderrStatus) throw new CliError(`An error occured: ${stderrStatus}`)
   if (stdoutStatus.includes('nothing to commit, working tree clean')) {
-    outro(lightGreen('Nothing to commit, working tree clean 🧹'))
+    console.log(green('Nothing to commit, working tree clean 🧹'))
     Deno.exit(1)
   }
 }
@@ -44,7 +36,7 @@ export const isGitRepository = () => {
   const dir = resolve('.git')
   access(dir, err => {
     if (err && err.code === 'ENOENT') {
-      outro(lightYellow('Not a git repository 😢'))
+      console.log(yellow('Not a git repository 😢'))
       Deno.exit(1)
     }
   })

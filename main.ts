@@ -1,7 +1,16 @@
-import { Input, Select } from './deps.ts'
+import { Input, Select, Confirm } from './deps.ts'
+import {
+  isGitRepository,
+  isTreeClean,
+  gitAdd,
+  gitCommit,
+  gitStatus,
+} from './src/helpers/git.ts'
+import { log } from './src/helpers/log.ts'
+import { CliError } from './src/helpers/cli-errror.ts'
 
-async function promptType() {
-  return await Select.prompt({
+async function prompts() {
+  const type = await Select.prompt({
     message: 'Choose commit type',
     default: 'feat',
     options: [
@@ -51,24 +60,79 @@ async function promptType() {
       },
     ],
   })
-}
 
-async function promptCommit() {
-  return await Input.prompt({
+  const commit = await Input.prompt({
     message: 'Insert commit message',
     validate: (value: string) => {
       if (value === '') return false
       return true
     },
   })
+
+  return { type, commit }
 }
 
 // Learn more at https://deno.land/manual/examples/module_metadata#concepts
 if (import.meta.main) {
   console.log('Cocli - v0.1.0 🌱🚀')
-  console.log('exit using ctrl/cmd + c, or exit, type help for more info')
+  console.log('exit using ctrl/cmd + c, type help for more info')
 
-  const type = await promptType()
-  const commit = await promptCommit()
-  console.log({ type, commit })
+  isGitRepository()
+
+  await isTreeClean()
+
+  const values = await prompts()
+
+  try {
+    const commit = `${values.type}: ${values.commit}`
+
+    const { stdoutStatus, stderrStatus } = await gitStatus()
+
+    if (stderrStatus) throw new CliError(`An error occured: ${stderrStatus}`)
+
+    if (
+      stdoutStatus.includes('no changes added to commit') ||
+      stdoutStatus.includes(
+        'nothing added to commit but untracked files present'
+      )
+    ) {
+      const type = stdoutStatus.includes('no changes added to commit')
+        ? 'modified'
+        : 'untracked'
+      const addStagedFiles = await Confirm.prompt({
+        message: `No changes added to commit, would you like to add ${type} files ?`,
+        default: true,
+      })
+
+      if (addStagedFiles) {
+        const { stderrAdd } = await gitAdd()
+
+        if (stderrAdd) throw new CliError(`An error occured: ${stderrAdd}`)
+
+        const { stderrCommit } = await gitCommit({ commit: commit.trim() })
+
+        if (stderrCommit)
+          throw new CliError(`An error occured: ${stderrCommit}`)
+
+        console.log(`
+        You're all set 🎉
+
+        use "git push" to publish your local commits
+      `)
+      }
+    }
+
+    const { stderrCommit } = await gitCommit({ commit: commit.trim() })
+
+    if (stderrCommit) throw new CliError(`An error occured: ${stderrCommit}`)
+
+    console.log(`
+    You're all set 🎉
+
+    use "git push" to publish your local commits
+  `)
+  } catch (err) {
+    log({ type: 'error', msg: err.message })
+    Deno.exit(1)
+  }
 }
