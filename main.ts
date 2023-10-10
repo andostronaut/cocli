@@ -7,7 +7,7 @@ import {
   gitStatus,
 } from './src/helpers/git.ts'
 import { log } from './src/helpers/log.ts'
-import { CliError } from './src/helpers/cli-errror.ts'
+import { CliError } from './src/helpers/error.ts'
 
 async function prompts() {
   const type = await Select.prompt({
@@ -120,6 +120,8 @@ if (import.meta.main) {
         use "git push" to publish your local commits
       `)
       }
+
+      Deno.exit(1)
     }
 
     const { stderrCommit } = await gitCommit({ commit: commit.trim() })

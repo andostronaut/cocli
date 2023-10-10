@@ -1,6 +1,6 @@
 import { green, yellow, promisify, exec, access, resolve } from '../../deps.ts'
 
-import { CliError } from './cli-errror.ts'
+import { CliError } from './error.ts'
 
 const execa = promisify(exec)
 
