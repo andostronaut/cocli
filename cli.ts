@@ -58,11 +58,8 @@ if (import.meta.main) {
         if (stderrCommit)
           throw new CliError(`An error occured: ${stderrCommit}`)
 
-        console.log(`
-        You're all set 🎉
-
-        use "git push" to publish your local commits
-      `)
+        console.log("You're all set 🎉")
+        console.log('use "git push" to publish your local commits')
       }
 
       Deno.exit(1)
@@ -72,11 +69,8 @@ if (import.meta.main) {
 
     if (stderrCommit) throw new CliError(`An error occured: ${stderrCommit}`)
 
-    console.log(`
-    You're all set 🎉
-
-    use "git push" to publish your local commits
-  `)
+    console.log("You're all set 🎉")
+    console.log('use "git push" to publish your local commits')
   } catch (err) {
     log({ type: 'error', msg: err.message })
     Deno.exit(1)
