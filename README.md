@@ -6,30 +6,22 @@
   />
 </p>
 
-![build](https://github.com/iamando/cocli/workflows/build/badge.svg)
+[![deno module](https://shield.deno.dev/x/cocli)](https://deno.land/x/cocli)
+![deno compatibility](https://shield.deno.dev/deno/^1.37)
 ![license](https://img.shields.io/github/license/iamando/cocli?color=success)
-![npm](https://img.shields.io/npm/v/cocli)
 
-A ligthweight git commit prompt system to ensure readable and descriptive commit 🌱🚀.
+A ligthweight git commit prompt system to ensure readable and descriptive commit for Deno 🌱🚀.
 
 ## Installation
 
 ```shell
-npm install -g cocli
+deno install -A -r https://deno.land/x/cocli/main.ts -n cocli
 ```
 
-## Usage
-
-Navigate to your Git repository.
+## Quick Start
 
 ```shell
-cocli
-```
-
-## Update
-
-```shell
-cocli update
+deno run -A https://deno.land/x/cocli/main.ts
 ```
 
 ## Commit Type

@@ -1,5 +1,21 @@
-type TArgv = {
-  minified: boolean | undefined
-  version: boolean | undefined
-  help: boolean | undefined
+declare global {
+  type TCommonRecord = Record<string, string>
+
+  type TCliError = {
+    message?: string
+    stack?: string
+  }
+
+  type TGitCommit = {
+    commit: string
+  }
+
+  type TLogType = 'info' | 'success' | 'error'
+
+  type TLog = {
+    type?: TLogType
+    msg: string
+    isConsole?: boolean
+    newLine?: boolean
+  }
 }

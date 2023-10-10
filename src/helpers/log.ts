@@ -1,18 +1,6 @@
-import { blue, green, red, dim } from 'kolorist'
+import { blue, green, red, dim } from '../../deps.ts'
 
-type Type = 'info' | 'success' | 'error'
-
-export const log = ({
-  type,
-  msg,
-  isConsole = true,
-  newLine = true,
-}: {
-  type?: Type
-  msg: string
-  isConsole?: boolean
-  newLine?: boolean
-}) => {
+export const log = ({ type, msg, isConsole = true, newLine = true }: TLog) => {
   switch (type) {
     case 'info':
       return isConsole
