@@ -58,6 +58,8 @@ if (import.meta.main) {
         if (stderrCommit)
           throw new CliError(`An error occured: ${stderrCommit}`)
 
+        console.log()
+        console.log(green('-'.repeat(50)))
         console.log("You're all set 🎉")
         console.log('use "git push" to publish your local commits')
       }
@@ -69,6 +71,8 @@ if (import.meta.main) {
 
     if (stderrCommit) throw new CliError(`An error occured: ${stderrCommit}`)
 
+    console.log()
+    console.log(green('-'.repeat(50)))
     console.log("You're all set 🎉")
     console.log('use "git push" to publish your local commits')
   } catch (err) {
