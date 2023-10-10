@@ -23,7 +23,7 @@ deno install -A -r https://deno.land/x/cocli/cli.ts -n cocli
 ## Quick Start
 
 ```shell
-deno run -A https://deno.land/x/cocli/cli.ts
+deno run -A -r https://deno.land/x/cocli/cli.ts
 ```
 
 ## Commit Type
