@@ -30,15 +30,14 @@ deno run -A https://deno.land/x/cocli/cli.ts
 
 List of type available:
 
-- feat
-- fix
-- hotfix
-- chore
-- epic
-- design
-- experiment
-- docs
-- refact
-- ci
-- infra
-- test
+- Feat - For new features (e.g., feat: implement --cache-to feature to export cache)
+- Fix - For improvements and bugfixes that do not introduce a feature (e.g., fix: improve error message)
+- Hotfix - For improvements and bugfixes that do not introduce a feature, directly in prodution mode (e.g., fix: improve success message)
+- Chore - General things that should be excluded (e.g., chore: clean up X)
+- Design - For design changes only (e.g., design: use rounded button)
+- Experiment - General things that should be in experiment (e.g., experiment: implement new query system in X)
+- Docs - For documentation changes only (e.g., docs: fix typo in X)
+- Refact - General things that should be restructured but not changing the orginal functionality (e.g., refact: move X to new file utils)
+- CI - For internal CI specific changes (e.g., ci: enable X for tests)
+- Infra - For infrastructure changes (e.g., infra: Enable cloudfront for X)
+- Test - For changes to tests only (e.g., test: check if X does Y)
