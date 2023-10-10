@@ -18,4 +18,6 @@ declare global {
     isConsole?: boolean
     newLine?: boolean
   }
+
+  type TGitStaged = 'modified' | 'untracked'
 }
