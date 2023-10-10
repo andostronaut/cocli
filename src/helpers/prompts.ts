@@ -13,7 +13,7 @@ export async function typePrompt() {
         value: 'fix',
       },
       {
-        name: 'Hotfix - For improvements and bugfixes that do not introduce a feature, directly in prodution mode (e.g., fix: improve success message)',
+        name: 'Hotfix - For improvements and bugfixes that do not introduce a feature, directly in production mode (e.g., fix: improve success message)',
         value: 'hotfix',
       },
       {
@@ -33,7 +33,7 @@ export async function typePrompt() {
         value: 'docs',
       },
       {
-        name: 'Refact - General things that should be restructured but not changing the orginal functionality (e.g., refact: move X to new file utils)',
+        name: 'Refact - General things that should be restructured but not changing the original functionality (e.g., refact: move X to new file utils)',
         value: 'refact',
       },
       {
