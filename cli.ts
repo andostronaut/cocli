@@ -1,4 +1,4 @@
-import { green } from './deps.ts'
+import { green, yellow } from './deps.ts'
 import {
   isGitRepository,
   isTreeClean,
@@ -58,11 +58,10 @@ if (import.meta.main) {
         if (stderrCommit)
           throw new CliError(`An error occured: ${stderrCommit}`)
 
-        console.log(`
-        You're all set 🎉
-
-        use "git push" to publish your local commits
-      `)
+        console.log(green('-'.repeat(50)))
+        console.log()
+        console.log(green("You're all set 🎉"))
+        console.log(yellow('use "git push" to publish your local commits 🚀'))
       }
 
       Deno.exit(1)
@@ -72,11 +71,10 @@ if (import.meta.main) {
 
     if (stderrCommit) throw new CliError(`An error occured: ${stderrCommit}`)
 
-    console.log(`
-    You're all set 🎉
-
-    use "git push" to publish your local commits
-  `)
+    console.log(green('-'.repeat(50)))
+    console.log()
+    console.log(green("You're all set 🎉"))
+    console.log(yellow('use "git push" to publish your local commits 🚀'))
   } catch (err) {
     log({ type: 'error', msg: err.message })
     Deno.exit(1)
