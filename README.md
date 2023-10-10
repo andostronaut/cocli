@@ -10,6 +10,8 @@
 ![deno compatibility](https://shield.deno.dev/deno/^1.37)
 ![license](https://img.shields.io/github/license/iamando/cocli?color=success)
 
+![demo](./demo.gif)
+
 A ligthweight git commit prompt system to ensure readable and descriptive commit for Deno 🌱🚀.
 
 ## Installation
