@@ -23,7 +23,7 @@ if (import.meta.main) {
   console.log()
   console.log(green('-'.repeat(50)))
 
-  isGitRepository()
+  await isGitRepository()
 
   await isTreeClean()
 
