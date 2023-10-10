@@ -1,6 +1,9 @@
 {
+  "compilerOptions": {
+    "types": ["./src/types/**"]
+  },
   "tasks": {
-    "start": "deno run --allow-all --unstable --import-map=import_map.json main.ts",
+    "start": "deno run --config ./deno.json --allow-all --unstable --import-map=import_map.json main.ts",
     "dev": "deno run --watch main.ts"
   }
 }

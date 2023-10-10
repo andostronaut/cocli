@@ -5,7 +5,7 @@ export class CliError extends Error {}
 
 const indent = ' '.repeat(4)
 
-export function handleCliError(error: { message?: string; stack?: string }) {
+export function handleCliError(error: TCliError) {
   if (error instanceof Error && !(error instanceof CliError)) {
     if (error.stack) {
       log({
