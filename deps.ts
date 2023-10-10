@@ -13,5 +13,3 @@ export {
 
 export { promisify } from 'node:util'
 export { exec } from 'node:child_process'
-export { access } from 'node:fs'
-export { resolve } from 'node:path'
