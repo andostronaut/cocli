@@ -1,30 +1,28 @@
-import { green, yellow, promisify, exec } from '../../deps.ts'
+import { green, yellow } from '../../deps.ts'
+import { spawnPiped } from './spawn.ts'
 
 import { CliError } from './error.ts'
-
-const execa = promisify(exec)
-
 export async function gitStatus() {
   const { stdout: stdoutStatus, stderr: stderrStatus }: TCommonRecord =
-    await execa('git status')
+    await spawnPiped('git', ['status'])
   return { stdoutStatus, stderrStatus }
 }
 
 export async function gitAdd() {
-  const { stdout: stdoutAdd, stderr: stderrAdd }: TCommonRecord = await execa(
-    'git add .'
-  )
+  const { stdout: stdoutAdd, stderr: stderrAdd }: TCommonRecord =
+    await spawnPiped('git', ['add', '.'])
   return { stdoutAdd, stderrAdd }
 }
 
 export async function gitCommit({ commit }: TGitCommit) {
   const { stdout: stdoutCommit, stderr: stderrCommit }: TCommonRecord =
-    await execa(`git commit -m "${commit}"`)
+    await spawnPiped('git', ['commit', '-m', `${commit}`])
   return { stdoutCommit, stderrCommit }
 }
 
 export async function isTreeClean() {
-  const { stdoutStatus, stderrStatus }: TCommonRecord = await gitStatus()
+  const { stdout: stdoutStatus, stderr: stderrStatus }: TCommonRecord =
+    await spawnPiped('git', ['status'])
   if (stderrStatus) throw new CliError(`An error occured: ${stderrStatus}`)
   if (stdoutStatus.includes('nothing to commit, working tree clean')) {
     console.log(green('Nothing to commit, working tree clean 🧹'))

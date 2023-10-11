@@ -10,6 +10,3 @@ export {
   red,
   blue,
 } from 'https://deno.land/std@0.203.0/fmt/colors.ts'
-
-export { promisify } from 'node:util'
-export { exec } from 'node:child_process'

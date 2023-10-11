@@ -1,5 +1,6 @@
 declare global {
   type TCommonRecord = Record<string, string>
+  type TPromisedCommonRecord = Promise<Record<string, string>>
 
   type TCliError = {
     message?: string
