@@ -12,6 +12,7 @@ is_deno_installed() {
 # Function to install Deno
 install_deno() {
   if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    echo "Deno is not installed. Installing Deno...📦"
     curl -fsSL https://deno.land/x/install/install.sh | sh
   elif [[ "$OSTYPE" == "darwin"* ]]; then
     brew install deno
@@ -32,11 +33,11 @@ fi
 # Build the Deno project
 deno compile -A --output cocli https://deno.land/x/cocli/cli.ts
 
-if [[ -f my_project ]]; then
-  echo "Executable compiled successfully."
-  mv my_project /usr/local/bin/
+if [[ -f cocli ]]; then
+  echo "Executable compiled successfully.📦"
+  mv cocli /usr/local/bin/
   echo "Cocli is now available globally.🌱🚀"
 else
-  echo "Compilation failed."
+  echo "Compilation failed.❌"
   exit 1
 fi
