@@ -26,7 +26,6 @@ install_deno() {
 
 # Check if Deno is installed, and install if not
 if ! is_deno_installed; then
-  echo "Deno is not installed. Installing Deno...📦"
   install_deno
 fi
 
