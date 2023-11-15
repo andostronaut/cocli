@@ -12,11 +12,13 @@ is_deno_installed() {
 # Function to install Deno
 install_deno() {
   if [[ "$OSTYPE" == "linux-gnu" ]]; then
-    echo "Deno is not installed. Installing Deno...📦"
+    echo "Deno is not installed. Installing Deno on linux via curl...📦"
     curl -fsSL https://deno.land/x/install/install.sh | sh
   elif [[ "$OSTYPE" == "darwin"* ]]; then
+    echo "Deno is not installed. Installing Deno on macos via brew...📦"
     brew install deno
   elif [[ "$OSTYPE" == "msys" ]]; then
+    echo "Deno is not installed. Installing Deno on windows via choco...📦"
     choco install deno
   else
     echo "Unsupported OS: $OSTYPE"
