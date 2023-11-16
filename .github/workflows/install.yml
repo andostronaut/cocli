@@ -11,7 +11,7 @@ jobs:
           chmod +x scripts/install.sh
           ./scripts/install.sh
       - run: |
-          if command -v deno &>/dev/null; then
+          if command -v deno; then
             echo "Deno is installed."
             deno --version
           else
