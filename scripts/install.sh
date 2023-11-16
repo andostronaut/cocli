@@ -31,6 +31,9 @@ if ! is_deno_installed; then
   install_deno
 fi
 
+export DENO_INSTALL="/home/runner/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+
 # Build the Deno project
 deno compile -A --output cocli https://deno.land/x/cocli/cli.ts
 
