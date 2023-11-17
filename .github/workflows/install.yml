@@ -7,6 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: denolib/setup-deno@v2
+        with:
+          deno-version: 1.37.1
       - run: |
           chmod +x scripts/install.sh
           ./scripts/install.sh
