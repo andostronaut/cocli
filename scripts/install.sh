@@ -35,7 +35,9 @@ export DENO_INSTALL="/home/runner/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
 # Build the Deno project
+echo "Compiling Cocli...📦"
 deno compile -A --output cocli https://deno.land/x/cocli/cli.ts
+echo "Compilation finished..✅"
 
 if [[ -f cocli ]]; then
   echo "Executable compiled successfully.📦"
