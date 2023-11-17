@@ -1,0 +1,31 @@
+name: pull-request
+
+on: push
+
+jobs:
+  install-compiled:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: denolib/setup-deno@v2
+        with:
+          deno-version: 1.37.1
+      - run: |
+          chmod +x scripts/install.sh
+          ./scripts/install.sh
+      - run: |
+          if command -v deno &>/dev/null; then
+            echo "Deno is installed."
+            deno --version
+          else
+            echo "Deno installation failed."
+            exit 1
+          fi
+      - run: |
+          if command -v cocli &>/dev/null; then
+            echo "Cocli is installed globally."
+            cocli --version
+          else
+            echo "Cocli installation globally failed."
+            exit 1
+          fi
