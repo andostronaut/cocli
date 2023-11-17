@@ -1,4 +1,4 @@
-import { green, yellow } from './deps.ts'
+import { green, yellow, parseFlags } from './deps.ts'
 import {
   isGitRepository,
   isTreeClean,
@@ -16,6 +16,13 @@ import {
 
 // Learn more at https://deno.land/manual/examples/module_metadata#concepts
 if (import.meta.main) {
+  const { flags } = parseFlags(Deno.args)
+
+  if (flags.version) {
+    console.log('v0.1.0')
+    Deno.exit(1)
+  }
+
   console.log(green('-'.repeat(50)))
   console.log()
   console.log('Cocli - v0.1.0 🌱🚀')
