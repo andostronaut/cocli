@@ -5,6 +5,7 @@ export async function spawn(name: string, args: string[]): Promise<void> {
     stderr: 'inherit',
   })
   const child = command.spawn()
+
   await child.status
 }
 
@@ -18,10 +19,15 @@ export async function spawnPiped(
     stderr: 'piped',
   })
   const child = command.spawn()
+
   await child.status
+
   const { stdout: stdoutOutput, stderr: stderrOutput } = await child.output()
+
   const decoder = new TextDecoder()
+
   const stdout = decoder.decode(stdoutOutput)
   const stderr = decoder.decode(stderrOutput)
+
   return { stdout, stderr }
 }
