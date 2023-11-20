@@ -19,13 +19,13 @@ if (import.meta.main) {
   const { flags } = parseFlags(Deno.args)
 
   if (flags.version) {
-    console.log('v0.1.6')
+    console.log('v0.1.7')
     Deno.exit()
   }
 
   console.log(green('-'.repeat(50)))
   console.log()
-  console.log('Cocli - v0.1.6 🌱🚀')
+  console.log('Cocli - v0.1.7 🌱🚀')
   console.log('Press Ctrl/Cmd + C, type help for more info')
   console.log()
   console.log(green('-'.repeat(50)))
