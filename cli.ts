@@ -20,7 +20,7 @@ if (import.meta.main) {
 
   if (flags.version) {
     console.log('v0.1.6')
-    Deno.exit(1)
+    Deno.exit()
   }
 
   console.log(green('-'.repeat(50)))
