@@ -20,6 +20,12 @@ A ligthweight git commit prompt system to ensure readable and descriptive commit
 deno install -A -r https://deno.land/x/cocli/cli.ts -n cocli
 ```
 
+## Directly Compiling Executable
+
+```shell
+wget -O - https://raw.githubusercontent.com/iamando/cocli/main/scripts/install.sh | bash
+```
+
 ## Quick Start
 
 ```shell
