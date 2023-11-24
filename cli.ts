@@ -13,19 +13,20 @@ import {
   commitPrompt,
   stagedPrompt,
 } from './src/helpers/prompts.ts'
+import { CLI_VERSION } from './src/constants.ts'
 
 // Learn more at https://deno.land/manual/examples/module_metadata#concepts
 if (import.meta.main) {
   const { flags } = parseFlags(Deno.args)
 
   if (flags.version) {
-    console.log('v0.1.7')
+    console.log(CLI_VERSION)
     Deno.exit()
   }
 
   console.log(green('-'.repeat(50)))
   console.log()
-  console.log('Cocli - v0.1.7 🌱🚀')
+  console.log(`Cocli - ${CLI_VERSION} 🌱🚀`)
   console.log('Press Ctrl/Cmd + C, type help for more info')
   console.log()
   console.log(green('-'.repeat(50)))
