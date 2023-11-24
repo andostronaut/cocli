@@ -1,5 +1,6 @@
 import { dim } from '../../deps.ts'
 import { log } from './log.ts'
+import { CLI_VERSION } from '../constants.ts'
 
 export class CliError extends Error {}
 
@@ -15,7 +16,7 @@ export function handleCliError(error: TCliError) {
     }
     log({
       type: 'error',
-      msg: `\n${indent}${dim('Cocli - v0.1.0 🌱🚀')}`,
+      msg: `\n${indent}${dim(`Cocli - ${CLI_VERSION} 🌱🚀`)}`,
     })
     log({
       type: 'error',
