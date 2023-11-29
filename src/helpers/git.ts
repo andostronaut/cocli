@@ -1,6 +1,5 @@
 import { green, yellow } from '../../deps.ts'
 import { spawnPiped } from './spawn.ts'
-
 import { CliError } from './error.ts'
 
 export async function gitStatus() {
