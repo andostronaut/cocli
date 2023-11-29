@@ -2,6 +2,7 @@ import { green, yellow } from '../../deps.ts'
 import { spawnPiped } from './spawn.ts'
 
 import { CliError } from './error.ts'
+
 export async function gitStatus() {
   const { stdout: stdoutStatus, stderr: stderrStatus }: TCommonRecord =
     await spawnPiped('git', ['status'])
@@ -26,7 +27,7 @@ export async function isTreeClean() {
   if (stderrStatus) throw new CliError(`An error occured: ${stderrStatus}`)
   if (stdoutStatus.includes('nothing to commit, working tree clean')) {
     console.log(green('Nothing to commit, working tree clean 🧹'))
-    Deno.exit(1)
+    Deno.exit()
   }
 }
 
