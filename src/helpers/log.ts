@@ -9,7 +9,7 @@ export const log = ({ type, msg, isConsole = true, newLine = true }: TLog) => {
     case 'success':
       return isConsole
         ? console.log(`${newLine ? '\n' : ''} ${green('✔')} ${msg}`)
-        : `${newLine ? '\n' : ''} ${green('✔')} ${msg}`
+        : `${newLine ? '\n' : ''} ${green('✅')} ${msg}`
     case 'error':
       return isConsole
         ? console.error(` ${newLine ? '\n' : ''} ${red('❌')} ${msg}`)
