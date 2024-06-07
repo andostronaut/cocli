@@ -8,11 +8,11 @@
 
 [![deno module](https://shield.deno.dev/x/cocli)](https://deno.land/x/cocli)
 ![deno compatibility](https://shield.deno.dev/deno/^1.37)
-![license](https://img.shields.io/github/license/iamando/cocli?color=success)
+![license](https://img.shields.io/github/license/andostronaut/cocli?color=success)
 
 ![demo](./demo.gif)
 
-A ligthweight git commit prompt system to ensure readable and descriptive commit for Deno 🌱🚀.
+A ligthweight git commit prompt system to ensure readable and descriptive commit for Deno 🦕🌱
 
 ## Installation
 
@@ -23,7 +23,7 @@ deno install -A -r https://deno.land/x/cocli/cli.ts -n cocli
 ## Directly Compiling Executable
 
 ```shell
-wget -O - https://raw.githubusercontent.com/iamando/cocli/main/scripts/install.sh | bash
+wget -O - https://raw.githubusercontent.com/andostronaut/cocli/main/scripts/install.sh | bash
 ```
 
 ## Quick Start
@@ -47,3 +47,7 @@ List of type available:
 - CI - For internal CI specific changes (e.g., ci: enable X for tests)
 - Infra - For infrastructure changes (e.g., infra: Enable cloudfront for X)
 - Test - For changes to tests only (e.g., test: check if X does Y)
+
+## LICENSE
+
+[MIT](LICENSE)
