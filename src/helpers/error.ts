@@ -24,7 +24,7 @@ export function handleCliError(error: TCliError) {
     })
     log({
       type: 'error',
-      msg: `${indent}https://github.com/iamando/cocli/issues/new`,
+      msg: `${indent}https://github.com/andostronaut/cocli/issues/new`,
     })
   }
 }
