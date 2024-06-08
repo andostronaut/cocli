@@ -1,6 +1,6 @@
 {
   "name": "@andostronaut/cocli",
-  "version": "0.1.7",
+  "version": "0.2.0",
   "importMap": "./import_map.json",
   "tasks": {
     "start": "deno run -A cli.ts",
