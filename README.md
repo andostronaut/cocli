@@ -7,7 +7,7 @@
 </p>
 
 [![deno module](https://shield.deno.dev/x/cocli)](https://deno.land/x/cocli)
-![deno compatibility](https://shield.deno.dev/deno/^1.37)
+![deno compatibility](https://shield.deno.dev/deno/^1.42.4)
 ![license](https://img.shields.io/github/license/andostronaut/cocli?color=success)
 
 ![demo](./demo.gif)
