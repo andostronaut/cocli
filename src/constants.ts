@@ -1,1 +1,3 @@
-export const CLI_VERSION = 'v0.1.7'
+import pkg from '../deno.json' with { type: "json" }
+
+export const CLI_VERSION = `v${pkg.version}`

@@ -62,7 +62,7 @@ on. As our projects, by default, use the default GitHub issue labels
 This project has adopted the
 [Contributor Covenant](https://www.contributor-covenant.org/), version 2.1,
 available at
-https://www.contributor-covenant.org/version/2/1/code_of_conduct.html.
+<https://www.contributor-covenant.org/version/2/1/code_of_conduct.html>.
 
 ## Licensing
 
