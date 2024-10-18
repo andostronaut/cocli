@@ -33,5 +33,10 @@ fi
 
 # Install directly Cocli using the global flag
 echo "Installing Cocli, please wait..."
-deno install -A -r --global https://deno.land/x/cocli/cli.ts -n cocli
-echo "Cocli is installed 📦"
+
+if ! deno install -A -r --global https://deno.land/x/cocli/cli.ts -n cocli; then
+  echo "Failed to install Cocli. Please check your internet connection and try again."
+  exit 1
+else
+  echo "Cocli is installed 📦"
+fi
