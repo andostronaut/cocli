@@ -31,7 +31,7 @@ if ! is_deno_installed; then
   install_deno
 fi
 
-# Install directly cocli
+# Install directly Cocli using the global flag
 echo "Installing Cocli, please wait..."
 deno install -A -r --global https://deno.land/x/cocli/cli.ts -n cocli
 echo "Cocli is installed 📦"
