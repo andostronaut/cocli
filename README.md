@@ -18,7 +18,7 @@ A ligthweight git commit prompt system to ensure readable and descriptive commit
 ## Installation
 
 ```shell
-deno install -A -r --global https://deno.land/x/cocli/cli.ts -n cocli
+deno install -A -r -g https://deno.land/x/cocli/cli.ts -n cocli
 ```
 
 ## Quick Start
