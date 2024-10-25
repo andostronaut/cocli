@@ -33,8 +33,8 @@ export async function typePrompt() {
         value: 'docs',
       },
       {
-        name: 'Refact - General things that should be restructured but not changing the original functionality (e.g., refact: move X to new file utils)',
-        value: 'refact',
+        name: 'Refactor - General things that should be restructured but not changing the original functionality (e.g., refactor: move X to new file utils)',
+        value: 'refactor',
       },
       {
         name: 'CI - For internal CI specific changes (e.g., ci: enable X for tests)',

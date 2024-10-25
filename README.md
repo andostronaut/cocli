@@ -44,7 +44,7 @@ List of type available:
 - Design - For design changes only (e.g., design: use rounded button)
 - Experiment - General things that should be in experiment (e.g., experiment: implement new query system in X)
 - Docs - For documentation changes only (e.g., docs: fix typo in X)
-- Refact - General things that should be restructured but not changing the original functionality (e.g., refact: move X to new file utils)
+- Refactor - General things that should be restructured but not changing the original functionality (e.g., refactor: move X to new file utils)
 - CI - For internal CI specific changes (e.g., ci: enable X for tests)
 - Infra - For infrastructure changes (e.g., infra: Enable cloudfront for X)
 - Test - For changes to tests only (e.g., test: check if X does Y)
