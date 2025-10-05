@@ -1,4 +1,5 @@
 import { blue, dim, green, red } from '../../deps.ts'
+import type { TLog } from '../types.ts'
 
 export const log = ({ type, msg, isConsole = true, newLine = true }: TLog) => {
 	switch (type) {

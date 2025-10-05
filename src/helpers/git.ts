@@ -1,6 +1,7 @@
 import { green, yellow } from '../../deps.ts'
 import { spawnPiped } from './spawn.ts'
 import { CliError } from './error.ts'
+import type { TCommonRecord, TGitCheckoutNew, TGitCommit } from '../types.ts'
 
 export async function gitStatus() {
 	const { stdout: stdoutStatus, stderr: stderrStatus }: TCommonRecord =
@@ -43,4 +44,9 @@ export async function isGitRepository() {
 			Deno.exit(1)
 		}
 	}
+}
+
+export async function gitCheckoutNew({ name }: TGitCheckoutNew) {
+	const { stdout, stderr } = await spawnPiped('git', ['checkout', '-b', name])
+	return { stdout, stderr }
 }

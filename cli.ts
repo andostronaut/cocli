@@ -1,6 +1,7 @@
 import { green, parseFlags, yellow } from './deps.ts'
 import {
 	gitAdd,
+	gitCheckoutNew,
 	gitCommit,
 	gitStatus,
 	isGitRepository,
@@ -9,11 +10,13 @@ import {
 import { log } from './src/helpers/log.ts'
 import { CliError } from './src/helpers/error.ts'
 import {
+	branchNamePrompt,
+	branchStrategyPrompt,
 	commitPrompt,
 	stagedPrompt,
 	typePrompt,
 } from './src/helpers/prompts.ts'
-import { CLI_VERSION } from './src/constants.ts'
+import { BRANCH_STRATEGIES, CLI_VERSION } from './src/constants.ts'
 
 // Learn more at https://deno.land/manual/examples/module_metadata#concepts
 if (import.meta.main) {
@@ -34,6 +37,15 @@ if (import.meta.main) {
 	await isGitRepository()
 
 	await isTreeClean()
+
+	const branchStrategy = await branchStrategyPrompt()
+	if (branchStrategy === BRANCH_STRATEGIES.NEW) {
+		const newBranchName = await branchNamePrompt()
+		const { stderr } = await gitCheckoutNew({ name: newBranchName.trim() })
+		if (stderr) {
+			throw new CliError(`An error occured: ${stderr}`)
+		}
+	}
 
 	const typeVal = await typePrompt()
 	const commitVal = await commitPrompt()
