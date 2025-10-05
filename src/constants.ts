@@ -6,7 +6,6 @@ export const BRANCH_STRATEGIES = {
 	CURRENT: 'current',
 	NEW: 'new',
 } as const
-
 export const COMMIT_TYPES = {
 	FEAT: 'feat',
 	FIX: 'fix',

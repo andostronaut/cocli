@@ -14,11 +14,7 @@ import {
 	branchStrategyPrompt,
 	branchTypePrompt,
 } from './src/helpers/prompts/branch.ts'
-import {
-	commitPrompt,
-	stagedPrompt,
-	typePrompt,
-} from './src/helpers/prompts/commit.ts'
+import { commitPrompt, stagedPrompt, typePrompt } from './src/helpers/prompts/commit.ts'
 import { BRANCH_STRATEGIES, CLI_VERSION } from './src/constants.ts'
 
 // Learn more at https://deno.land/manual/examples/module_metadata#concepts
