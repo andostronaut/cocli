@@ -99,7 +99,6 @@ if (import.meta.main) {
 		const { stderrCommit } = await gitCommit({ commit: commit.trim() })
 
 		if (stderrCommit) throw new CliError(`An error occured: ${stderrCommit}`)
-
 		console.log(green('-'.repeat(50)))
 		console.log()
 		console.log(green("You're all set 🎉"))
