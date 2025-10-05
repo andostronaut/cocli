@@ -1,4 +1,4 @@
-import { Select, Input, Confirm } from '../../deps.ts'
+import { Confirm, Input, Select } from '../../deps.ts'
 
 export async function typePrompt() {
   return await Select.prompt({
@@ -53,18 +53,19 @@ export async function typePrompt() {
 }
 
 export async function commitPrompt() {
-  return await Input.prompt({
-    message: 'Insert commit message',
-    validate: (value: string) => {
-      if (value === '') return false
-      return true
-    },
-  })
+	return await Input.prompt({
+		message: 'Insert commit message',
+		validate: (value: string) => {
+			if (value === '') return false
+			return true
+		},
+	})
 }
 
 export async function stagedPrompt(type: TGitStaged) {
-  return await Confirm.prompt({
-    message: `No changes added to commit, would you like to add ${type} files ?`,
-    default: true,
-  })
+	return await Confirm.prompt({
+		message:
+			`No changes added to commit, would you like to add ${type} files ?`,
+		default: true,
+	})
 }
