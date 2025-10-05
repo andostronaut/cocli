@@ -39,7 +39,11 @@ if (import.meta.main) {
 	await isTreeClean()
 
 	const branchStrategy = await branchStrategyPrompt()
+<<<<<<< HEAD
 	if (branchStrategy === BRANCH_STRATEGIES.NEW) {
+=======
+	if (branchStrategy === 'new') {
+>>>>>>> 273ea4a (feat: add branch creation and checkout functionality)
 		const newBranchName = await branchNamePrompt()
 		const { stderr } = await gitCheckoutNew({ name: newBranchName.trim() })
 		if (stderr) {
