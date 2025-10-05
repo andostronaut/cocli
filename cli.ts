@@ -12,18 +12,10 @@ import { CliError } from './src/helpers/error.ts'
 import {
 	branchNamePrompt,
 	branchStrategyPrompt,
-<<<<<<< HEAD
 	branchTypePrompt,
 } from './src/helpers/prompts/branch.ts'
 import { commitPrompt, stagedPrompt, typePrompt } from './src/helpers/prompts/commit.ts'
 import { BRANCH_STRATEGIES, CLI_VERSION } from './src/constants.ts'
-=======
-	commitPrompt,
-	stagedPrompt,
-	typePrompt,
-} from './src/helpers/prompts.ts'
-import { CLI_VERSION } from './src/constants.ts'
->>>>>>> 1949230 (feat: add branch creation and checkout functionality)
 
 // Learn more at https://deno.land/manual/examples/module_metadata#concepts
 if (import.meta.main) {
@@ -62,15 +54,6 @@ if (import.meta.main) {
 	}
 
 	await isTreeClean()
-
-	const branchStrategy = await branchStrategyPrompt()
-	if (branchStrategy === 'new') {
-		const newBranchName = await branchNamePrompt()
-		const { stderr } = await gitCheckoutNew({ name: newBranchName.trim() })
-		if (stderr) {
-			throw new CliError(`An error occured: ${stderr}`)
-		}
-	}
 
 	const typeVal = await typePrompt()
 	const commitVal = await commitPrompt()
