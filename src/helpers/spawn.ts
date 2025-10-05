@@ -1,33 +1,33 @@
 export async function spawn(name: string, args: string[]): Promise<void> {
-  const command = new Deno.Command(name, {
-    args,
-    stdout: 'inherit',
-    stderr: 'inherit',
-  })
-  const child = command.spawn()
+	const command = new Deno.Command(name, {
+		args,
+		stdout: 'inherit',
+		stderr: 'inherit',
+	})
+	const child = command.spawn()
 
-  await child.status
+	await child.status
 }
 
 export async function spawnPiped(
-  name: string,
-  args: string[]
+	name: string,
+	args: string[],
 ): TPromisedCommonRecord {
-  const command = new Deno.Command(name, {
-    args,
-    stdout: 'piped',
-    stderr: 'piped',
-  })
-  const child = command.spawn()
+	const command = new Deno.Command(name, {
+		args,
+		stdout: 'piped',
+		stderr: 'piped',
+	})
+	const child = command.spawn()
 
-  await child.status
+	await child.status
 
-  const { stdout: stdoutOutput, stderr: stderrOutput } = await child.output()
+	const { stdout: stdoutOutput, stderr: stderrOutput } = await child.output()
 
-  const decoder = new TextDecoder()
+	const decoder = new TextDecoder()
 
-  const stdout = decoder.decode(stdoutOutput)
-  const stderr = decoder.decode(stderrOutput)
+	const stdout = decoder.decode(stdoutOutput)
+	const stderr = decoder.decode(stderrOutput)
 
-  return { stdout, stderr }
+	return { stdout, stderr }
 }
