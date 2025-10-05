@@ -12,10 +12,13 @@ import { CliError } from './src/helpers/error.ts'
 import {
 	branchNamePrompt,
 	branchStrategyPrompt,
+	branchTypePrompt,
+} from './src/helpers/prompts/branch.ts'
+import {
 	commitPrompt,
 	stagedPrompt,
 	typePrompt,
-} from './src/helpers/prompts.ts'
+} from './src/helpers/prompts/commit.ts'
 import { BRANCH_STRATEGIES, CLI_VERSION } from './src/constants.ts'
 
 // Learn more at https://deno.land/manual/examples/module_metadata#concepts
@@ -36,16 +39,25 @@ if (import.meta.main) {
 
 	await isGitRepository()
 
-	await isTreeClean()
-
 	const branchStrategy = await branchStrategyPrompt()
 	if (branchStrategy === BRANCH_STRATEGIES.NEW) {
+		const branchType = await branchTypePrompt()
 		const newBranchName = await branchNamePrompt()
-		const { stderr } = await gitCheckoutNew({ name: newBranchName.trim() })
+		const prefixedBranchName = `${branchType}/${newBranchName.trim()}`
+
+		const { stderr } = await gitCheckoutNew({ name: prefixedBranchName })
+
 		if (stderr) {
-			throw new CliError(`An error occured: ${stderr}`)
+			const msg = stderr.trim()
+			const benign = /^(Switched to (a new )?branch|Already on)/.test(msg)
+
+			if (!benign) {
+				throw new CliError(`An error occured: ${stderr}`)
+			}
 		}
 	}
+
+	await isTreeClean()
 
 	const typeVal = await typePrompt()
 	const commitVal = await commitPrompt()
