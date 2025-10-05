@@ -21,4 +21,10 @@ declare global {
 	}
 
 	type TGitStaged = 'modified' | 'untracked'
+
+	type TBranchStrategy = 'current' | 'new'
+
+	type TGitCheckoutNew = {
+		name: string
+	}
 }
