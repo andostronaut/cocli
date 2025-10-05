@@ -59,15 +59,6 @@ if (import.meta.main) {
 
 	await isTreeClean()
 
-	const branchStrategy = await branchStrategyPrompt()
-	if (branchStrategy === BRANCH_STRATEGIES.NEW) {
-		const newBranchName = await branchNamePrompt()
-		const { stderr } = await gitCheckoutNew({ name: newBranchName.trim() })
-		if (stderr) {
-			throw new CliError(`An error occured: ${stderr}`)
-		}
-	}
-
 	const typeVal = await typePrompt()
 	const commitVal = await commitPrompt()
 
