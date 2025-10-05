@@ -41,8 +41,8 @@ export async function typePrompt() {
 			},
 			{
 				name:
-					'Refact - General things that should be restructured but not changing the original functionality (e.g., refact: move X to new file utils)',
-				value: 'refact',
+					'Refactor - General things that should be restructured but not changing the original functionality (e.g., refactor: move X to new file utils)',
+				value: 'refactor',
 			},
 			{
 				name:
