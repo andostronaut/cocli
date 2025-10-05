@@ -1,6 +1,7 @@
 import { green, parseFlags, yellow } from './deps.ts'
 import {
 	gitAdd,
+	gitCheckoutNew,
 	gitCommit,
 	gitStatus,
 	isGitRepository,
@@ -9,6 +10,8 @@ import {
 import { log } from './src/helpers/log.ts'
 import { CliError } from './src/helpers/error.ts'
 import {
+	branchNamePrompt,
+	branchStrategyPrompt,
 	commitPrompt,
 	stagedPrompt,
 	typePrompt,
@@ -34,6 +37,15 @@ if (import.meta.main) {
 	await isGitRepository()
 
 	await isTreeClean()
+
+	const branchStrategy = await branchStrategyPrompt()
+	if (branchStrategy === 'new') {
+		const newBranchName = await branchNamePrompt()
+		const { stderr } = await gitCheckoutNew({ name: newBranchName.trim() })
+		if (stderr) {
+			throw new CliError(`An error occured: ${stderr}`)
+		}
+	}
 
 	const typeVal = await typePrompt()
 	const commitVal = await commitPrompt()

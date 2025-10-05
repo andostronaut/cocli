@@ -44,3 +44,8 @@ export async function isGitRepository() {
 		}
 	}
 }
+
+export async function gitCheckoutNew({ name }: TGitCheckoutNew) {
+	const { stdout, stderr } = await spawnPiped('git', ['checkout', '-b', name])
+	return { stdout, stderr }
+}
