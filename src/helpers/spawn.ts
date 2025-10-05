@@ -9,6 +9,8 @@ export async function spawn(name: string, args: string[]): Promise<void> {
 	await child.status
 }
 
+import type { TPromisedCommonRecord } from '../types.ts'
+
 export async function spawnPiped(
 	name: string,
 	args: string[],

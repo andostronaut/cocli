@@ -1,4 +1,5 @@
 import { Confirm, Input, Select } from '../../deps.ts'
+import { BRANCH_STRATEGIES } from '../constants.ts'
 
 export async function typePrompt() {
 	return await Select.prompt({
@@ -82,11 +83,17 @@ export async function stagedPrompt(type: TGitStaged) {
 }
 
 export async function branchStrategyPrompt() {
-	return await Select.prompt<`current` | `new`>({
+	return await Select.prompt<
+		| keyof typeof BRANCH_STRATEGIES
+		| typeof BRANCH_STRATEGIES[keyof typeof BRANCH_STRATEGIES]
+	>({
 		message: 'Where do you want to commit?',
 		options: [
-			{ name: 'Current branch', value: 'current' },
-			{ name: 'Create and switch to a new branch', value: 'new' },
+			{ name: 'Current branch', value: BRANCH_STRATEGIES.CURRENT },
+			{
+				name: 'Create and switch to a new branch',
+				value: BRANCH_STRATEGIES.NEW,
+			},
 		],
 	})
 }
