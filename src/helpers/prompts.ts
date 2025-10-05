@@ -41,8 +41,8 @@ export async function typePrompt() {
 			},
 			{
 				name:
-					'Refact - General things that should be restructured but not changing the original functionality (e.g., refact: move X to new file utils)',
-				value: 'refact',
+					'Refactor - General things that should be restructured but not changing the original functionality (e.g., refactor: move X to new file utils)',
+				value: 'refactor',
 			},
 			{
 				name:
@@ -78,5 +78,22 @@ export async function stagedPrompt(type: TGitStaged) {
 		message:
 			`No changes added to commit, would you like to add ${type} files ?`,
 		default: true,
+	})
+}
+
+export async function branchStrategyPrompt() {
+	return await Select.prompt<`current` | `new`>({
+		message: 'Where do you want to commit?',
+		options: [
+			{ name: 'Current branch', value: 'current' },
+			{ name: 'Create and switch to a new branch', value: 'new' },
+		],
+	})
+}
+
+export async function branchNamePrompt() {
+	return await Input.prompt({
+		message: 'Enter new branch name',
+		validate: (value: string) => value.trim().length > 0,
 	})
 }
