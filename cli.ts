@@ -41,7 +41,10 @@ if (import.meta.main) {
 	const branchStrategy = await branchStrategyPrompt()
 	if (branchStrategy === 'new') {
 		const newBranchName = await branchNamePrompt()
-		await gitCheckoutNew({ name: newBranchName.trim() })
+		const { stderr } = await gitCheckoutNew({ name: newBranchName.trim() })
+		if (stderr) {
+			throw new CliError(`An error occured: ${stderr}`)
+		}
 	}
 
 	const typeVal = await typePrompt()
