@@ -1,5 +1,6 @@
 import { dim } from '../../deps.ts'
 import { log } from './log.ts'
+import type { TCliError } from '../types.ts'
 import { CLI_VERSION } from '../constants.ts'
 
 export class CliError extends Error {}

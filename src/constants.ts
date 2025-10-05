@@ -1,3 +1,8 @@
 import pkg from '../deno.json' with { type: 'json' }
 
 export const CLI_VERSION = `v${pkg.version}`
+
+export const BRANCH_STRATEGIES = {
+	CURRENT: 'current',
+	NEW: 'new',
+} as const

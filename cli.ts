@@ -16,7 +16,7 @@ import {
 	stagedPrompt,
 	typePrompt,
 } from './src/helpers/prompts.ts'
-import { CLI_VERSION } from './src/constants.ts'
+import { BRANCH_STRATEGIES, CLI_VERSION } from './src/constants.ts'
 
 // Learn more at https://deno.land/manual/examples/module_metadata#concepts
 if (import.meta.main) {
@@ -39,7 +39,7 @@ if (import.meta.main) {
 	await isTreeClean()
 
 	const branchStrategy = await branchStrategyPrompt()
-	if (branchStrategy === 'new') {
+	if (branchStrategy === BRANCH_STRATEGIES.NEW) {
 		const newBranchName = await branchNamePrompt()
 		const { stderr } = await gitCheckoutNew({ name: newBranchName.trim() })
 		if (stderr) {

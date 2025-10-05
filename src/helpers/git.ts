@@ -1,6 +1,7 @@
 import { green, yellow } from '../../deps.ts'
 import { spawnPiped } from './spawn.ts'
 import { CliError } from './error.ts'
+import type { TCommonRecord, TGitCheckoutNew, TGitCommit } from '../types.ts'
 
 export async function gitStatus() {
 	const { stdout: stdoutStatus, stderr: stderrStatus }: TCommonRecord =
